@@ -1,0 +1,210 @@
+/* Import custom fonts */
+@font-face {
+    font-family: 'JandaAmazing';
+    src: url('fonts/JandaAmazingGrace.ttf') format('truetype'); /* Ensure the font file is in the correct path */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'JandaAmazingGrace';
+    src: url('fonts/JandaAmazingGrace.ttf') format('truetype'); /* Ensure the font file is in the correct path */
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Apply the font to the entire page */
+body {
+    font-family: 'JandaAmazing', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+/* Background for Yushi's POV */
+body.yushi-page {
+    background-image: url('images/yushipage.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-end; /* Align content to the right */
+    align-items: center;
+    padding-right: 10%; /* Adjust the right padding to position correctly */
+}
+
+/* Background for Riku's POV */
+body.riku-page {
+    background-image: url('images/rikupage.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-end; /* Align content to the right */
+    align-items: center;
+    padding-right: 10%; /* Adjust the right padding to position correctly */
+}
+
+/* Center the list */
+.pov-list {
+    list-style-type: none;
+    text-align: center;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.pov-list li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-family: 'JandaAmazing', sans-serif;
+}
+
+/* Button styling */
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Center the main page links */
+.main-links {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 30px;
+    font-family: 'JandaAmazing', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+/* CSS for AO3 POV Page */
+body.ao3-page {
+    background-image: url('images/ao3.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.ao3-image {
+    display: none; /* Hide extra image since background is set */
+}
+
+.button-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    padding: 10px 20px;
+    text-decoration: none;
+    font-family: 'JandaAmazing', sans-serif;
+    background-color: #8B4513;
+    color: white;
+    border-radius: 5px;
+    display: inline-block;
+}
+/* Floating Dust Effect */
+.dust-particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: rgba(255, 223, 186, 0.6); /* Light Dusty Color */
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(255, 223, 186, 0.8);
+    animation: floatDust linear infinite;
+    pointer-events: none;
+}
+
+/* Floating Animation */
+@keyframes floatDust {
+    0% {
+        transform: translateY(0px) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-50px) scale(0.5);
+        opacity: 0;
+    }
+}
+
+/* Button Hover Effect */
+.btn:hover {
+    transform: translateY(-3px);
+    transition: 0.3s ease-in-out;
+}
+
+/* Fade-In Effect */
+body {
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.poem-line {
+    transition: opacity 1s ease, text-shadow 0.5s ease;
+    opacity: 0.7;
+}
+
+.name {
+    cursor: crosshair;
+    transition: transform 0.3s ease;
+}
+
+.name:hover {
+    transform: translateY(-2px);
+}
+
+.dust-particle {
+    /* Update your existing particle CSS with these */
+    animation: float 3s ease-out forwards;
+    will-change: transform, opacity;
+}
+
+@keyframes float {
+    to {
+        transform: translate(var(--move-x, 0), var(--move-y, -100vh));
+        opacity: 0;
+    }
+}
+
+@keyframes textGlow {
+    from { text-shadow: 0 0 20px rgba(255,255,255,0.8); }
+    to { text-shadow: none; }
+}
+
+.particle-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    padding: 10px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 5px;
+    transition: opacity 0.3s ease;
+}
